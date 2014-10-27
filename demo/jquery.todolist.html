@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>jQuery Todo List Plugin</title>
+
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+<link rel="stylesheet/less" type="text/css" href="../src/jquery.todolist.less" />
+
+<script src="./scripts/less.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="../src/jquery.todoList.js"></script>
+</head>
+<body>
+
+<div id="demo" style="width: 50%;"></div>
+
+<script type="text/javascript">
+
+    (function($){$(function(){
+
+        $("#demo").todoList({
+            items: [
+                'todo 1',
+                'todo 2',
+                'do something do something do something do something do something do something '
+            ]
+        });
+
+
+    });})(jQuery);
+
+</script>
+</body>
+</html>

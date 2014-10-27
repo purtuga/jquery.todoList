@@ -1,0 +1,172 @@
+/**
+ * jquery.todoList
+ */
+.jquery-todolist {
+
+    @rootClassName: jquery-todolist;
+
+    position: relative;
+    min-width: 15em;
+
+    *,
+    *:before,
+    *:after {
+        margin: 0;
+        padding: 0;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .@{rootClassName} {
+
+        &-float-cntr:after {
+            content: "";
+            visibility: hidden;
+            display: block;
+            height: 0;
+            clear: both;
+        }
+
+        &-title {
+            padding: .5em;
+        }
+
+        &-action {
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        &-floatLeft {
+            float: left;
+        }
+
+        &-floatRight {
+            float: right;
+        }
+
+        &-item {
+
+            margin: .3em 0em .3em;
+            position: relative;
+            overflow: hidden;
+
+            &-actions,
+            &-title {
+                display: inline-block;
+            }
+
+            &-actions-left,
+            &-title {
+                padding: .5em;
+                line-height: 1.5em;
+            }
+
+            &-actions {
+                border-width: 0px;
+                width: 10%;
+                text-align: center;
+
+                &-left {
+                    border-right-width: 1px;
+                }
+
+                &-right {
+                    position: absolute;
+                    border-left-width: 1px;
+                    right: -11%;
+                    transition: right 0.5s 0s;
+                }
+
+            }
+
+            &:hover .@{rootClassName}-item-actions-right {
+                right: -1px;
+            }
+
+            &-action-remove {
+                border: medium none;
+                font-weight: 900;
+                padding: .1em;
+                font-size: 2em;
+                line-height: 1.1em;
+            }
+
+            &-title {
+                width: 87%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+
+            }
+            &-checkbox {
+                height: 26px;
+                width: 26px;
+                /* Image from: https://www.iconfinder.com/icons/175466/checkbox_unchecked_icon#size=26 */
+                background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAh0lEQVRIie3WsQ3DMAxEUY6gUT6OC2hDjeZRNILdhEYgpwlMu+IBbPUoNTozMwOapCFpuvueMZKmpAE0C8Tdtyzgx2xAM0nja4sBdLsZoK/nWjyXpHEXWBOYpGmhZtxkDUCcf0LZSKSgggoqqKCC/oEAshGgn9BrX/lD5YRLOXmtbn02eLxAHkhQNNgPmtd0AAAAAElFTkSuQmCC);
+                text-indent: -1000px;
+            }
+
+            &-done {
+
+                .@{rootClassName}-item {
+
+                    &-checkbox {
+                        /* Image from:  https://www.iconfinder.com/icons/175220/checkbox_checked_icon#size=26 */
+                        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAABIUlEQVRIib3WYZGDMBQE4CcBCZWws2sACUg4CZVwDiKlEpCAhEpAwt0fwnC59yCdpGWGP5DkS5aQxMzMAAwkE8lV0k+Pm+RKMgEYLCOSll6Acy8ABiOZDr1IAEZrvACMZbuW4yKZWoHyyhjJ1bLaOhIAIPm9f5PtWW5/hxqR4ZDMKmnK77pCkh7lJOgOSZqcmTZ3hY6RHf8fALeukBcZyXtRpg26iqwLVBNZFbQ19OefKCp7kX0FZX2oWPuWEiN5dyJ7RKMPIWeB3TEAtyAyd+SnEMlntAJLmp13U4RcRQdvXwr2qjCyS+gMeyWyKqgSO42sGrrALiN7CfIwks+ayEIIAM4wSfOGhOWceuMOfWwrf9PhBP8OJx87bm09ePsB8hfZBPJdtEbBiQAAAABJRU5ErkJggg==);
+                    }
+
+                    &-title {
+                        text-decoration: line-through;
+                        font-style: italic;
+                        font-size: .9em;
+                    }
+
+                }
+            }
+
+        } /* end: -item */
+
+        &-footer {
+            position: relative;
+        }
+
+        &-add {
+            &-input,
+            &-action {
+                line-height: 1.5em;
+                display: inline-block;
+            }
+
+            &-action {
+                float: right;
+                border-top-width: 0px;
+                border-bottom-width: 0px;
+                border-right-width: 0px;
+                width: 14%;
+                text-align: center;
+                text-decoration: none;
+                overflow: hidden;
+                font-weight: 900;
+                padding: .1em;
+                font-size: 2em;
+                line-height: 1.1em;
+            }
+
+            &-input {
+
+                width: 85%;
+                &-text {
+                    width: 100%;
+                    border: none;
+                    line-height: 1.5em;
+                    padding: .5em;
+                }
+            }
+
+        }
+
+    } /* end: rootClassName */
+
+}
