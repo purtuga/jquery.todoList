@@ -1,0 +1,30 @@
+{
+    "name": "jui_theme_switch",
+    "version": "1.0.6",
+    "title": "jQuery ui-theme switcher",
+    "author": {
+        "name": "Christos Pontikis",
+        "url": "http://pontikis.net"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://raw.github.com/pontikis/jui_theme_switch/master/MIT_LICENSE"
+        }
+    ],
+    "dependencies": {
+        "jquery": ">=1.6"
+    },
+    "description": "jQuery plugin, displays a list of jquery-ui css themes and applies selected theme.",
+    "homepage": "http://pontikis.net/labs/jui_theme_switch",
+    "docs": "http://pontikis.net/labs/jui_theme_switch/docs",
+    "demo": "http://pontikis.net/labs/jui_theme_switch/demo",
+    "download": "https://github.com/pontikis/jui_theme_switch/archive/master.zip",
+    "keywords": [
+        "themes",
+        "themes-roller",
+        "themes-switch",
+        "ui"
+    ],
+    "bugs": "https://github.com/pontikis/jui_theme_switch/issues"
+}

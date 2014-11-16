@@ -4,6 +4,15 @@
 .jquery-todolist {
 
     @rootClassName: jquery-todolist;
+    @maxItemHeight: 6em;
+
+    .iconContainer () {
+        background-repeat: no-repeat;
+        display: inline-block;
+        text-indent: -1000px;
+        text-align: center;
+        overflow: hidden;
+    }
 
     position: relative;
     min-width: 15em;
@@ -20,143 +29,115 @@
 
     .@{rootClassName} {
 
-        &-float-cntr:after {
-            content: "";
-            visibility: hidden;
-            display: block;
-            height: 0;
-            clear: both;
-        }
-
         &-title {
-            padding: .5em;
-        }
-
-        &-action {
-            display: inline-block;
-            text-align: center;
-            cursor: pointer;
-        }
-
-        &-floatLeft {
-            float: left;
-        }
-
-        &-floatRight {
-            float: right;
-        }
-
-        &-item {
-
-            margin: .3em 0em .3em;
+            padding: .5em 2em .5em .5em;
             position: relative;
             overflow: hidden;
 
-            &-actions,
-            &-title {
+            &-text {
                 display: inline-block;
+                width: 100%;
             }
 
-            &-actions-left,
-            &-title {
-                padding: .5em;
-                line-height: 1.5em;
-            }
+        }
+
+        &-menu-show {
+
+            display: block;
+            position: absolute;
+            right: -1px;
+            top: -1px;
+            font-weight: 900;
+            cursor: pointer;
+            vertical-align: middle;
+            font-size: .9em;
+            height: @maxItemHeight;
+            padding: .2em;
+
+        }
+
+        &-menu {
+
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 10em;
+            padding: .2em;
+            z-index: 1;
 
             &-actions {
-                border-width: 0px;
-                width: 10%;
-                text-align: center;
+                position: absolute;
+                right: .2em;
+                top: .2em;
 
-                &-left {
-                    border-right-width: 1px;
-                }
-
-                &-right {
-                    position: absolute;
-                    border-left-width: 1px;
-                    right: -11%;
-                    transition: right 0.5s 0s;
+                .@{rootClassName}-action {
+                    padding: .2em;
+                    display: inline-block;
                 }
 
             }
 
-            &:hover .@{rootClassName}-item-actions-right {
-                right: -1px;
-            }
+            &-items {
+                max-height: 10em;
+                overflow-y: auto;
+                margin: 2em 0em 1em;
 
-            &-action-remove {
-                border: medium none;
-                font-weight: 900;
-                padding: .1em;
-                font-size: 2em;
-                line-height: 1.1em;
-            }
-
-            &-title {
-                width: 87%;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-
-            }
-            &-checkbox {
-                height: 26px;
-                width: 26px;
-                /* Image from: https://www.iconfinder.com/icons/175466/checkbox_unchecked_icon#size=26 */
-                background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAh0lEQVRIie3WsQ3DMAxEUY6gUT6OC2hDjeZRNILdhEYgpwlMu+IBbPUoNTozMwOapCFpuvueMZKmpAE0C8Tdtyzgx2xAM0nja4sBdLsZoK/nWjyXpHEXWBOYpGmhZtxkDUCcf0LZSKSgggoqqKCC/oEAshGgn9BrX/lD5YRLOXmtbn02eLxAHkhQNNgPmtd0AAAAAElFTkSuQmCC);
-                text-indent: -1000px;
-            }
-
-            &-done {
-
-                .@{rootClassName}-item {
-
-                    &-checkbox {
-                        /* Image from:  https://www.iconfinder.com/icons/175220/checkbox_checked_icon#size=26 */
-                        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAABIUlEQVRIib3WYZGDMBQE4CcBCZWws2sACUg4CZVwDiKlEpCAhEpAwt0fwnC59yCdpGWGP5DkS5aQxMzMAAwkE8lV0k+Pm+RKMgEYLCOSll6Acy8ABiOZDr1IAEZrvACMZbuW4yKZWoHyyhjJ1bLaOhIAIPm9f5PtWW5/hxqR4ZDMKmnK77pCkh7lJOgOSZqcmTZ3hY6RHf8fALeukBcZyXtRpg26iqwLVBNZFbQ19OefKCp7kX0FZX2oWPuWEiN5dyJ7RKMPIWeB3TEAtyAyd+SnEMlntAJLmp13U4RcRQdvXwr2qjCyS+gMeyWyKqgSO42sGrrALiN7CfIwks+ayEIIAM4wSfOGhOWceuMOfWwrf9PhBP8OJx87bm09ePsB8hfZBPJdtEbBiQAAAABJRU5ErkJggg==);
-                    }
-
-                    &-title {
-                        text-decoration: line-through;
-                        font-style: italic;
-                        font-size: .9em;
-                    }
-
+                & a {
+                    display: block;
+                    padding: .2em;
+                    margin-bottom: 0.5em;
                 }
             }
 
-        } /* end: -item */
+        }
 
         &-footer {
             position: relative;
         }
 
+        &-action {
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        &-button {
+
+            display: inline-block;
+
+            &-confirm {
+                display: inline-block;
+                padding: .2em;
+                height: @maxItemHeight;
+                border-top: none;
+                border-bottom: none;
+                border-right: none;
+            }
+
+            &-cancel {
+                display: inline-block;
+                padding: .2em;
+                height: @maxItemHeight;
+            }
+
+        }
+
         &-add {
+
+            padding: 1px 40px 1px 1px;
+            position: relative;
+            border: none;
+
             &-input,
             &-action {
                 line-height: 1.5em;
                 display: inline-block;
             }
 
-            &-action {
-                float: right;
-                border-top-width: 0px;
-                border-bottom-width: 0px;
-                border-right-width: 0px;
-                width: 14%;
-                text-align: center;
-                text-decoration: none;
-                overflow: hidden;
-                font-weight: 900;
-                padding: .1em;
-                font-size: 2em;
-                line-height: 1.1em;
-            }
-
             &-input {
 
-                width: 85%;
+                width: 100%;
+                border: none;
+
                 &-text {
                     width: 100%;
                     border: none;
@@ -165,8 +146,161 @@
                 }
             }
 
+            &-action {
+                display: inline-block;
+                text-decoration: none;
+                overflow: hidden;
+                font-weight: 900;
+                padding: 0em;
+                text-align: center;
+                font-size: 2em;
+                line-height: 1.1em;
+                position: absolute;
+                width: 40px;
+                top: 0px;
+                right: 0px;
+            }
+
         }
 
-    } /* end: rootClassName */
+        &-edit {
+
+            position: relative;
+
+            &-input {
+
+                width: 100%;
+                padding-right: 40px;
+
+                input {
+                    width: 100%;
+                    padding: .5em;
+                    line-height: 1.5em;
+                }
+            }
+
+            &-save {
+                .iconContainer();
+                position: absolute;
+                right: 12px;
+                top: 0px;
+                width: 25px;
+                text-align: center;
+                line-height: 2em;
+                cursor: pointer;
+                /* Image from: https://www.iconfinder.com/icons/173176/check_icon#size=24 */
+                background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAACCklEQVRIib2Wy27TQBSGR4pJvOA5YNtHmKUjjDQbC3EHpYAIK1iCmtSWmqob0rSOnfTOVULpS3ST90gXbEhbsDP2JI71s6B1cyc0Dr90dqPv05kz0hlCeqJpWpJSKs9SmqYlyWAopQuMsXpaUXxVVfkslVYUnzFWp5QuRALGWP2wVkMYhpg1YRjisFYDY6weXUtaUfw44L2StKL4mqYlCaVUVlWVx0Y/j6qqnFIqxyIQQuCd+RmF7W/RNccmEELgqWFD2nRw/f13vFmrotvtxiPwfR9PdAvSpgNSBUgFuGkc4bjRmF3geR4eL1uQzEu4tNFCRrchhBgtCIIAb81PeF08QKvVmgh/lC9DMt0euIuMbsPzPAAjZhAEAbIFC3K1icSuh3vLFlzXHYJzzvFwEF5ykNEt+L4fnRsSHDcauLF2BPIRIB+AxI6Hu/l+CeccD3JmH/xaycHiAHxsBy9XK0hVz0AOALIPJLY83Fky4TgOOOe4v2RCKrd64L+wqFsQQgx1OnIGnU4H2dUKUvYpyB5AdoFExcOt3D5u5/b64es/8WwMfKwgkhRspMwTkB2AbJ/XFiJ4cv0Mz43x8ImCPslG80rwvwqAP082u2JBLjUv4cVTvDDKaLfbE+FTCS4kr1YsyMUfSBVPpoZPLbiQGPZX5Mtfpob/k+CqiQRzXzhzX5n/ZenP89vyG9UicsE1jZqPAAAAAElFTkSuQmCC");
+
+            }
+
+
+        }
+
+        &-item {
+
+            margin: .3em 0em .3em;
+            position: relative;
+            overflow: hidden;
+
+            &-title {
+
+                border-bottom: medium none;
+                border-top: medium none;
+                border-right: medium none;
+                line-height: 1.5em;
+                padding: 0.5em;
+                margin-left: 40px;
+                padding-right: 23px;
+                max-height: @maxItemHeight;
+                overflow: hidden;
+
+                &-text {
+                    display: inline-block;
+                    width: 100%;
+                }
+
+            }
+
+            &-actions-left {
+
+                display: inline-block;
+                position: absolute;
+                top: .5em;
+                left: 7px;
+
+            }
+
+            &-actions-right {
+
+                display: inline-block;
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                height: @maxItemHeight;
+            }
+
+            &-action-remove {
+
+                .iconContainer();
+                /* Image from:  https://www.iconfinder.com/icons/284192/circle_close_delete_icon#size=128 */
+                background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABA0lEQVQ4jY3Sz0oCYRQF8N+ssrdIJ1chopuQ3qBFuOjNLLJAEFwIvkUZBSW9Sq6qZYs7xuf4VR6YxXfPPefO/cMuehjjC0/V94EbdDP5PzjEBFOcZPgOZrhFIyd+w/lfFSpc4KVuMtlTvMFQtInoeZqQZygzojYGyXuumsnYds8lHmsmx1XsKIn1cE1Mu47UpMSyJoYCa2JNOWxMcuINXv8zWOIezV9yVvCZIdKem3hAq5ZT4J24sE5CtO0OrFX9TWrSx4hYxSwhBvI9lzhN3ou08J24sH1xias00BDnOdxT/IyDOtEQRzUXR1IkXCF6XlSVd8QpuuLC1mLPKzHtke1hg295iTKQEXiRlAAAAABJRU5ErkJggg==");
+                position: absolute;
+                right: 5px;
+                top: .5em;
+                height: 17px;
+                width: 17px;
+                cursor: pointer;
+
+                &-confirm {
+                    .iconContainer();
+                    display: inline-block;
+                    padding: .2em;
+                    width: 19px;
+                    height: 24px;
+                    /* image from: https://www.iconfinder.com/icons/284073/bin_delete_editor_recycle_trash_icon#size=24 */
+                    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAYCAYAAAAYl8YPAAACTUlEQVQ4T62VS0iVURSFVRpYGCnlxKIGUdBLbRA9zGgmaYI0SKVhEWVENCjTgVGgUhhElBrmSAslGvlqJhg9iAbaAyVKpHQghqFYEkH2LTkH9v05XW/ggcVZe+91193/Oec/f3JS/JFCeZWR/IT/+ddPkuN4qTYCthrNG/ieeGYTFLOW6DCR8rj+fQqsS0S9hGZKZmkgdRnM5mWmRf4IVjhDLfB2MAxU/wV2gE+uPsu8G3w2DXxXzm/AV4INprgGrrVU1zJLB/OuLm0+GDP6d/Bsb/aKYK8pboS/BOsDZu/JnQBDRv8UfsSbPSE4Zoq74J1Ajxvt7Dm5KjBg9K3wU97sDsF5UzwIvwkOBMx6yDWDLqO/Dr/qzS4T3DDFo/Bzaj1g9ohcH2gz+tPwFm+mNWg3RcXFoCxg1kTuA7hr9EXwXm92mKDfFCvg2eBMwKye3ByoNfpc+JA320Kgs+ZHNUTHozJgdoXcWnDJ6DPh37yZboYfpqj1mwF1AbOz5HRotU4a2u2VYMHeGtMkMpxAu/UWNAbMysmVgFKnHWXeLG7NdIp3OkEHs7b+YcCskNwFUOC0z5gPRc10ir1AW38PdAfM8sjdAvvMH6vbmM4eEJ90ghfMWnz9a/QNUPePwTanbWBe3Az7mNeIa5xA50hnTI8eNdOF8Br4C/Ui/HbUTLtz35npxtgPvgTMVpObBP7bcNx1GtOZFlbvnYY+HFo/PeZvoCtHN8sC0DdA3wI/9P7qhokxyyEeNKJE6Sb3BDFmOtVaq/8Z6lR3n7pP+guXqYbxgVDCfwAAAABJRU5ErkJggg==");
+                }
+
+            }
+
+            &-checkbox {
+                .iconContainer();
+                height: 26px;
+                width: 26px;
+                /* Image from: https://www.iconfinder.com/icons/175466/checkbox_unchecked_icon#size=26 */
+                background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAh0lEQVRIie3WsQ3DMAxEUY6gUT6OC2hDjeZRNILdhEYgpwlMu+IBbPUoNTozMwOapCFpuvueMZKmpAE0C8Tdtyzgx2xAM0nja4sBdLsZoK/nWjyXpHEXWBOYpGmhZtxkDUCcf0LZSKSgggoqqKCC/oEAshGgn9BrX/lD5YRLOXmtbn02eLxAHkhQNNgPmtd0AAAAAElFTkSuQmCC");
+                opacity: .7;
+                cursor: pointer;
+            }
+
+            &-done {
+
+                .@{rootClassName}-item {
+
+                    &-checkbox {
+                        /* Image from:  https://www.iconfinder.com/icons/175220/checkbox_checked_icon#size=26 */
+                        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAABIUlEQVRIib3WYZGDMBQE4CcBCZWws2sACUg4CZVwDiKlEpCAhEpAwt0fwnC59yCdpGWGP5DkS5aQxMzMAAwkE8lV0k+Pm+RKMgEYLCOSll6Acy8ABiOZDr1IAEZrvACMZbuW4yKZWoHyyhjJ1bLaOhIAIPm9f5PtWW5/hxqR4ZDMKmnK77pCkh7lJOgOSZqcmTZ3hY6RHf8fALeukBcZyXtRpg26iqwLVBNZFbQ19OefKCp7kX0FZX2oWPuWEiN5dyJ7RKMPIWeB3TEAtyAyd+SnEMlntAJLmp13U4RcRQdvXwr2qjCyS+gMeyWyKqgSO42sGrrALiN7CfIwks+ayEIIAM4wSfOGhOWceuMOfWwrf9PhBP8OJx87bm09ePsB8hfZBPJdtEbBiQAAAABJRU5ErkJggg==");
+                    }
+
+                    &-title-text {
+                        text-decoration: line-through;
+                        font-style: italic;
+                        font-size: .9em;
+                    }
+
+                }
+            }
+
+        }
+
+        &-hide-done {
+
+            .@{rootClassName}-item-done {
+                display: none;
+            }
+
+        }
+
+    }
 
 }

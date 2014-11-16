@@ -1,0 +1,26 @@
+{
+  "name": "todoList",
+  "title": "TodoList",
+  "description": "A simple todo list plugin.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/purtuga/jquery.todoList",
+  "author": {
+    "name": "Paul Tavares",
+    "url": "paultavares.wordpress.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/purtuga/jquery.todoList.git"
+  },
+  "bugs": "https://github.com/purtuga/jquery.todoList/issues",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/purtuga/jquery.todoList/blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": "*"
+  },
+  "keywords": ["todo", "todo list", "task", "task list"]
+}

@@ -1,23 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>jQuery Todo List Plugin</title>
+    <meta charset="ISO-8859-1">
+    <title>jQuery Todo List Plugin</title>
 
-<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
-<link rel="stylesheet/less" type="text/css" href="../src/jquery.todolist.less" />
+    <link id="ui-theme" rel="stylesheet" href="//code.jquery.com/ui/1.10.0/themes/ui-lightness/jquery-ui.css">
+    <link rel="stylesheet" href="./scripts/jui_theme_switch/jquery.jui_theme_switch.css">
 
-<script src="./scripts/less.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="../src/jquery.todoList.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="./scripts/jui_theme_switch/jquery.jui_theme_switch.min.js"></script>
+
+    <script src="../dist/jquery.todoList.js"></script>
 </head>
 <body>
-
+<div>
+    <div id="theme_switcher"></div>
+</div>
 <div id="demo" style="width: 50%;"></div>
 
 <script type="text/javascript">
 
     (function($){$(function(){
+
+        $("#theme_switcher").jui_theme_switch({
+            stylesheet_link_id: "ui-theme",
+            datasource_url: './data/theme_switcher_data.json'
+        });
 
         $("#demo").todoList({
             items: [
@@ -26,7 +35,6 @@
                 'do something do something do something do something do something do something '
             ]
         });
-
 
     });})(jQuery);
 
