@@ -1,6 +1,6 @@
 # Todolist
 
-A simple todo list plugin.
+A simple todo list plugin. Demo here: __http://purtuga.github.io/jquery.todoList/__
 
 ## Getting Started
 Download the plugin from the [Release page][rel]. Plugin is located in the `dist` folder. It currently depends on jQuery and jQuery UI Themes.
