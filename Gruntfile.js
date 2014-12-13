@@ -26,6 +26,8 @@ module.exports = function(grunt) {
      *
      * @return {String} fileContent
      *
+     * @see https://gist.github.com/purtuga/85ee689f0d3d90484ce3
+     *
      * @example
      *
      *  ...
@@ -82,6 +84,7 @@ module.exports = function(grunt) {
 
                         file = file
                                 .replace(/\"/g, '\\x22')
+                                .replace(/\'/g, '\\x27')
                                 .replace(/\r\n|\n/g, "\\n");
 
                     }
@@ -191,7 +194,7 @@ module.exports = function(grunt) {
                 files : '<%= jshint.test.src %>',
                 tasks : ['jshint:test', 'qunit']
             },
-        },
+        }
     });
 
     // These plugins provide necessary tasks.

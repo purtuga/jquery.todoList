@@ -27,7 +27,7 @@
      * Creates a todoList within the given selection of elements.
      *
      * @param {Object} [options]
-     * @param {String} [options.title]
+     * @param {String} [options.title="Todo List"]
      * @param {Array<Object>|Array<String>} [options.items]
      * @param {String} [options.removeLabel="delete?"]
      * @param {String} [options.newItemLabel="New Item"]
@@ -320,11 +320,15 @@
             }; //end: todo instance
 
             todo.$ui = $(setup.listTemplate)
+                        .appendTo(
+                            todo.$ele.empty().addClass("has-jquery-todolist")
+                        )
+
                         .find(".jquery-todolist-title-text")
                             .html(todo.opt.title)
                             .end()
                         .find(".jquery-todolist-add-input-text")
-                            .html("todo.opt.newItemLabel")
+                            .html(todo.opt.newItemLabel)
                             .end()
                         .find(".jquery-todolist-action-edit")
                             .attr("title", todo.opt.editItemTooltip)
@@ -360,9 +364,6 @@
                 });
 
             }
-
-            // insert into DOM
-            todo.$ele.empty().append(todo.$ui).addClass("has-jquery-todolist");
 
             // Bind CLICK event handler
             todo.$ui.on("click.jqueryTodoList", ".jquery-todolist-action", function(){
@@ -513,20 +514,26 @@
 
             });
 
-            // Focus on Title?
-            if (todo.opt.focusOnTitle){
-
-                todo.$ui.find("div.jquery-todolist-title")
-                    .find(".jquery-todolist-title-text")
-                        .click()
-                        .end()
-                    .find("input")
-                        .select();
-
-            }
 
             // Store this instance object on the dom element
             this.jqueryTodoList = todo;
+            todo.$ui.css("display", "");
+
+            // Focus on Title?
+            if (todo.opt.focusOnTitle){
+
+                setTimeout(function(){
+
+                    todo.$ui.find("div.jquery-todolist-title")
+                        .find(".jquery-todolist-title-text")
+                            .click()
+                            .end()
+                        .find("input")
+                            .select();
+
+                }, 500);
+
+            }
 
             return this;
 
