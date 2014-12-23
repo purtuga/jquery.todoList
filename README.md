@@ -37,7 +37,7 @@ jQuery.todoList accepts as input an object containing the supported options belo
 -   `title` : (_Type: String, Optional, Default: `Todo List`_) The title for the todo list.
 -   `items` : (_Type: Array&lt;String&gt;|Array&lt;Object&gt;, Optional, Default: `[]`_) An array of items for the todo list. The content of the array can be either a String or an Object containing at least a `title` attribute (String) and optional a `done` attribute (Boolean) indicating if the task is done.
 -   `removeLabel` : (_Type: String, Optional, Default: `delete?`_) The title for item delete button.
--   `newItemLabel` : (_Type: String, Optional, Default: `New Item`_) The placeholder text for the new item input field
+-   `newItemPlaceholder` : (_Type: String, Optional, Default: `New Item`_) The placeholder text for the new item input field
 -   `editItemTooltip` : (_Type: String, Optional, Default: `Click to Edit`_) The tooltip shown when hovering over an item that can be edited.
 -   `focusOnTitle` : (_Type: Boolean, Optional, Default: false_) If set to true, the Todo List Title will be shown in Edit mode with its text selected.
 -   `customActions` : (_Type: Array, Optional, Default: null_) An Array of Objects with additional items to be displayed on the todolist menu. Each object must define at least two properties: `title` - the title of the menu item. `action` - a function that will be called when clicked.

@@ -65,6 +65,35 @@
 
     });
 
+    test('Validate Input parameters', function(){
+
+        this.$wdg = this.elems.filter("#todolist")
+                    .todoList({
+                        title: "title test",
+                        removeLabel: "remove test",
+                        newItemPlaceholder: "new item test",
+                        items: [
+                            "one item test"
+                        ]
+                    });
+
+        // Todo list title
+        equal(this.$wdg.find(".jquery-todolist-title-text").text(), "title test", "Title was set correctly");
+
+        // Add new placeholder text
+        equal(this.$wdg.find(".jquery-todolist-add input").attr("placeholder"), "new item test", "new item placeholder ok");
+
+        this.$item1 = this.$wdg.find(".jquery-todolist-item").eq(0);
+        ok(
+            this.$item1.find(".jquery-todolist-item-action-remove").length,
+            "Found item remove button"
+        );
+
+        this.$item1.find(".jquery-todolist-item-action-remove").click();
+        equal(this.$item1.find(".jquery-todolist-button-confirm").text(), "remove test", "remove label ok");
+
+    });
+
     test('Initialized twice on same element does nothing', function(){
 
         this.$wdg = this.elems.filter("#todolist")

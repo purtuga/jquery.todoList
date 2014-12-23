@@ -1,4 +1,4 @@
-/*! TodoList - v0.1.0 - 2014-12-07
+/*! TodoList - v0.1.0 - 2014-12-22
 * https://github.com/purtuga/jquery.todoList
 * Copyright (c) 2014 Paul Tavares; Licensed MIT */
 (function($) {
@@ -127,7 +127,7 @@
                         title: "Todo List",
                         items: [],
                         removeLabel: "delete?",
-                        newItemLabel: "New Item",
+                        newItemPlaceholder: "New Item",
                         editItemTooltip: "Click to Edit",
                         focusOnTitle: false,
                         customActions: null
@@ -319,22 +319,21 @@
                         .appendTo(
                             todo.$ele.empty().addClass("has-jquery-todolist")
                         )
-
                         .find(".jquery-todolist-title-text")
                             .html(todo.opt.title)
                             .end()
                         .find(".jquery-todolist-add-input-text")
-                            .html(todo.opt.newItemLabel)
+                            .attr("placeholder", todo.opt.newItemPlaceholder)
                             .end()
                         .find(".jquery-todolist-action-edit")
                             .attr("title", todo.opt.editItemTooltip)
                             .end();
 
             // Add references to the UI elements
-            todo.$ui.$menu = null;
-            todo.$ui.$items = todo.$ui.find("div.jquery-todolist-items");
-            todo.$ui.$newItemInput = todo.$ui.find("input.jquery-todolist-add-input-text");
-            todo.$ui.$addButton = todo.$ui.find(".jquery-todolist-add-action");
+            todo.$ui.$menu          = null;
+            todo.$ui.$items         = todo.$ui.find("div.jquery-todolist-items");
+            todo.$ui.$newItemInput  = todo.$ui.find("input.jquery-todolist-add-input-text");
+            todo.$ui.$addButton     = todo.$ui.find(".jquery-todolist-add-action");
 
             // If there are items defined on input, create them
             if ($.isArray(todo.opt.items)) {
