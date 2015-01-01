@@ -5,7 +5,19 @@
  * Copyright (c) 2014 Paul Tavares
  * Licensed under the MIT license.
  */
-(function($) {
+(function(factory){
+    if ( typeof define === "function" && define.amd ) {
+
+        // AMD. Request jQuery and then run the plugin
+        define([ "jquery" ], factory );
+
+    } else {
+
+        // Global jQuery
+        factory( jQuery );
+
+    }
+}(function($) {
 
     var setup = {
         isInitDone: false
@@ -542,4 +554,4 @@
 
     }; //end: $.fn.todolist
 
-}(jQuery));
+}));

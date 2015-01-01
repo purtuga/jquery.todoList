@@ -1,7 +1,19 @@
-/*! TodoList - v0.1.0 - 2014-12-22
+/*! TodoList - v0.1.0 - 2015-01-01
 * https://github.com/purtuga/jquery.todoList
-* Copyright (c) 2014 Paul Tavares; Licensed MIT */
-(function($) {
+* Copyright (c) 2015 Paul Tavares; Licensed MIT */
+(function(factory){
+    if ( typeof define === "function" && define.amd ) {
+
+        // AMD. Register as an anonymous module.
+        define([ "jquery" ], factory );
+
+    } else {
+
+        // Browser globals
+        factory( jQuery );
+
+    }
+}(function($) {
 
     var setup = {
         isInitDone: false
@@ -538,4 +550,4 @@
 
     }; //end: $.fn.todolist
 
-}(jQuery));
+}));

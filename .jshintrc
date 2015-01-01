@@ -11,5 +11,10 @@
   "boss": true,
   "eqnull": true,
   "node": true,
-  "loopfunc": true
+  "loopfunc": true,
+  "globals": {
+    "define": true,
+    "jQuery": true
+  },
+  "qunit": true
 }

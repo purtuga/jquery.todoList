@@ -1,0 +1,13 @@
+{
+    "name": "jquery.todoList",
+    "version": "1.0.0",
+    "main": "dist/jquery.todoList.js",
+    "ignore": [
+        ".jshintrc",
+        "demo/**/*"
+    ],
+    "dependencies": {
+        "jquery": "*"
+    },
+    "devDependencies": {}
+}
